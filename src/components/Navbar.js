@@ -25,6 +25,7 @@ const style = {
 
 class Navbar extends Component {
     render(){
+        const { carro } = this.props
         return(
             <div className="Navbar" style={style.navbar}>
                 <Logo/>
@@ -34,7 +35,7 @@ class Navbar extends Component {
                     <li>Acerca de</li>
                     <li>Contactos</li>  
                 </ul>
-                <Carro />
+                <Carro carro={carro} />
             </div>
         )
     }

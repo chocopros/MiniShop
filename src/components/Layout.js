@@ -12,7 +12,7 @@ const style = {
     
     },
     container: {
-        maxWidth: "1200px"
+        
     }
 }
 

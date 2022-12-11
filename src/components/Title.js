@@ -13,7 +13,7 @@ class Title extends Component {
     render(){
         return(
             <div className="header">
-                <h1 style={style.title}>Mini Tienda</h1>
+                <h1 style={style.title}>Mini Shop</h1>
             </div>
         )
     }

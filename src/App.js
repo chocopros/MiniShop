@@ -13,8 +13,9 @@ class App extends Component {
       {name: 'Lechuga', price: 500, img: './img/lechuga.jpg'}
     ],
     carro: [
-      ///? ESTRUCTURA {name: 'Tomate', price: 1500, img: './img/tomate.jpg', cantidad: 1}
-    ]
+      //? ESTRUCTURA {name: 'Tomate', price: 1500, img: './img/tomate.jpg', cantidad: 1}
+    ],
+    carroVisible: false
   };
 
   agregarAlCarro = (producto) => {
@@ -36,14 +37,27 @@ class App extends Component {
         cantidad: 1,
       })
     })
-
   }
 
+  mostrarCarro = () => {
+    if(!this.state.carro.length){
+      return console.log("carrito Vacio")
+    }
+    this.setState({ carroVisible: !this.state.carroVisible })
+  }
+
+
   render() {
-    console.log(this.state.carro)
+    //console.log(this.state.carro)
+
+    const  {carroVisible} = this.state
     return(
       <div>
-        <Navbar carro = {this.state.carro} />
+        <Navbar 
+          carro = {this.state.carro} 
+          carroVisible={carroVisible} 
+          mostrarCarro={this.mostrarCarro} 
+        />
         <Layout>
           <Title />
           <Productos 

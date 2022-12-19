@@ -27,7 +27,7 @@ const style = {
 
 class Carro extends Component {
     render(){
-        const {carro} = this.props
+        const {carro, carroVisible, mostrarCarro} = this.props
         const cantidad = carro.reduce((acc, el) => acc + el.cantidad, 0)
         return(
             <div style={style.container}>
@@ -41,15 +41,11 @@ class Carro extends Component {
                     }
                     
                 </span>
-                <button style={style.carro}>
+                <button onClick={mostrarCarro} style={style.carro}>
                     Carrito
                 </button>
-                {
-                    carro.length !== 0 
-                    ? <DetallesCarro carro={carro} />
-                    :
-                    null
-                }
+                {carroVisible ? <DetallesCarro carro={carro}/> : null}
+                
                 
             </div>
             

@@ -1,19 +1,40 @@
 import { Component } from "react";
 
+
 const style = {
     detallesCarro: {
+        //display: {state},
         backgroundColor: "#fff",
         position: 'fixed',
         marginTop: 30,
         boxShadow: "1px 5px 5px rgb(0,0,0,0.3)",
         borderRadius: "5px",
-        width: "300px",
+    
         right: 10,
     },
     lista: {
+        padding: 0,
+        marging: 0,
+        display: "flex",
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
         listStyle: "none"
+        
+    },
+    item: {
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        gap: "10px",
+        borderBottom: "solid 1px rgb(0,0,0,0.1)",
+        padding: "10px 20px"
+    },
+    title: {
+        padding: "0 20px"
     }
 }
+
 
 class DetallesCarro extends Component {
     render(){
@@ -21,14 +42,16 @@ class DetallesCarro extends Component {
         console.log(carro.length)
         return(
             <div style={style.detallesCarro}>
+                <h4 style={style.title}>Agregados al Carrito:</h4>
                 {
                     carro !== 0 
                     ?  <ul style={style.lista}>
+                        
                             {carro.map(x => 
-                                <li key={x.name}>
+                                <li key={x.name} style={style.item}>
                                     <img alt={x.name} src={x.img} width="50" height="32"></img>
-                                    {x.name}
-                                    {` (${x.cantidad})`}
+                                    {` ( ${x.cantidad} )`}
+                                    <span>{`${x.name} $${x.cantidad*x.price}`}</span>
                                 </li>)}
                         </ul>
                     :

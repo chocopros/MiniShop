@@ -40,6 +40,8 @@ class DetallesCarro extends Component {
     render(){
         const { carro } = this.props
         console.log(carro.length)
+        const addToPrice = []
+        const total = 0
         return(
             <div style={style.detallesCarro}>
                 <h4 style={style.title}>Agregados al Carrito:</h4>
@@ -52,15 +54,21 @@ class DetallesCarro extends Component {
                                     <img alt={x.name} src={x.img} width="50" height="32"></img>
                                     {` ( ${x.cantidad} )`}
                                     <span>{`${x.name} $${x.cantidad*x.price}`}</span>
-                                </li>)}
+                                    {addToPrice.push(x.cantidad*x.price)}
+                                    {console.log(addToPrice)}
+
+                                </li>)
+                            }
+                                                       
                         </ul>
                     :
                     null
                 }
-               
+                <h4 style={style.title}>{`Total: `}</h4>
             </div>
         )
     }
+   
 };
 
 export default DetallesCarro
